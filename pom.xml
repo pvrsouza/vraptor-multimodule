@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>br.com.sestren</groupId>
+	<artifactId>vraptor-multimodule</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- CAELUM -->
+			<dependency>
+				<groupId>br.com.caelum</groupId>
+				<artifactId>vraptor</artifactId>
+				<version>4.1.1</version>
+			</dependency>
+			<dependency>
+				<groupId>br.com.caelum.vraptor</groupId>
+				<artifactId>vraptor-jpa</artifactId>
+				<version>4.0.2</version>
+			</dependency>
+			<dependency>
+				<groupId>br.com.caelum.vraptor</groupId>
+				<artifactId>vraptor-java8</artifactId>
+				<version>4.0.0.Final</version>
+			</dependency>
+			<dependency>
+				<groupId>br.com.caelum.vraptor</groupId>
+				<artifactId>vraptor-routes</artifactId>
+				<version>4.1.0-RC3</version>
+			</dependency>
+			<dependency>
+				<groupId>br.com.caelum.vraptor</groupId>
+				<artifactId>vraptor-i18n</artifactId>
+				<version>4.1.0-RC3</version>
+			</dependency>
+
+
+			<!-- Weld -->
+			<dependency>
+				<groupId>org.jboss.weld.servlet</groupId>
+				<artifactId>weld-servlet-core</artifactId>
+				<version>2.1.2.Final</version>
+			</dependency>
+			<dependency>
+				<groupId>org.jboss.weld</groupId>
+				<artifactId>weld-core-impl</artifactId>
+				<version>2.1.2.Final</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.inject</groupId>
+				<artifactId>javax.inject</artifactId>
+				<version>1</version>
+				<!-- uncomment this line on app servers -->
+				<scope>provided</scope>
+			</dependency>
+
+
+			<!-- Hibernate -->
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-core</artifactId>
+				<version>4.3.5.Final</version>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-entitymanager</artifactId>
+				<version>4.3.5.Final</version>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-validator-cdi</artifactId>
+				<version>5.1.1.Final</version>
+			</dependency>
+
+
+			<!-- Driver DataBase -->
+			<dependency>
+				<groupId>postgresql</groupId>
+				<artifactId>postgresql</artifactId>
+				<version>9.1-901-1.jdbc4</version>
+			</dependency>
+
+
+			<!-- JSTL/EXPRESSION LANGUAGE -->
+			<dependency>
+				<groupId>javax.el</groupId>
+				<artifactId>el-api</artifactId>
+				<version>2.2</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>jstl</artifactId>
+				<version>1.2</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>3.1.0</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<!-- LOG -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>1.7.5</version>
+			</dependency>
+
+
+			<!-- Tiles -->
+			<dependency>
+				<groupId>org.apache.tiles</groupId>
+				<artifactId>tiles-jsp</artifactId>
+				<version>2.2.2</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.slf4j</groupId>
+						<artifactId>jcl-over-slf4j</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.1</version>
+					<configuration>
+						<source>1.8</source>
+						<target>1.8</target>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<modules>
+		<module>web</module>
+		<module>dbadmin</module>
+		<module>admin</module>
+		<module>atualizadb</module>
+		<module>comum</module>
+	</modules>
+</project>

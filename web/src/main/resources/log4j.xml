@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<appender name="default.console" class="org.apache.log4j.ConsoleAppender">
+		<param name="target" value="System.out" />
+		<param name="threshold" value="debug" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{ISO8601} %-5p [%c{1}] - %m%n" />
+		</layout>
+	</appender>
+	<appender name="default.file" class="org.apache.log4j.FileAppender">
+		<param name="file" value="${java.io.tmpdir}/scommerce.web.log" />
+		<param name="append" value="false" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{ISO8601} %-5p [%80.80c] - %m%n" />
+		</layout>
+	</appender>
+	<category name="br.com.sestren">
+		<priority value="TRACE" />
+		<appender-ref ref="default.file" />
+	</category>
+	<category name="br.com.caelum.vraptor">
+		<priority value="WARN" />
+		<appender-ref ref="default.file" />
+	</category>
+	<category name="org.jboss.logging">
+		<priority value="WARN" />
+		<appender-ref ref="default.file" />
+	</category>
+	<category name="org.jboss.weld">
+		<priority value="WARN" />
+		<appender-ref ref="default.file" />
+	</category>
+	<category name="org.hibernate.ejb.HibernatePersistence">
+		<priority value="ERROR" />
+		<appender-ref ref="default.file" />
+	</category>
+	<category name="org.hibernate">
+		<priority value="WARN" />
+		<appender-ref ref="default.file" />
+	</category>
+	<!-- incluir outras definições aqui -->
+</log4j:configuration>
